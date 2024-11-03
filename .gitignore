@@ -1,0 +1,11 @@
+# gitignore-tiedosto on tarkoitettu vain projektin omien tiedostojen hallintaan (kommentit merkitään # risuaidalla)
+# Poissuljetaan käännetyt tiedostot
+bin/
+obj/
+
+# Käyttäjäkohtaiset asetustiedostot
+*.suo
+*.user
+
+# Visual Studio -ratkaisutilan tiedostot
+*.sln.docstates

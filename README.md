@@ -48,7 +48,7 @@ code .
 
 ### Vaihe 6: Muokkaa Visual Studio Codessa AppLogger-moduulia eli uudelleennimeä AppLockerin Class.cs tiedosto Logger.cs nimiseksi
 ### Uudelleennimeämisen jälkeen muokkaa Logger.cs tiedostoa näin:
-
+```csharp
 using System;
 
 namespace AppLogger
@@ -61,14 +61,14 @@ namespace AppLogger
         }
     }
 }
-
+```
 ### Vaihe 7: Siirry takaisin PowerShelliin (mutta älä sulje Visual Studio Codea)
 ### Kirjoita PowerShelliin komento:
 dotnet build
 
 ### Vaihe 8: Muokkaa Visual Studio Codessa App-projektissa näkyvää Program.cs tiedostoa
 ### Siirry App-projektiin ja valitse Program.cs-tiedosto. Kirjoita koodi Program.cs tiedostoon, joka kutsuu Logger.Log-metodia:
-
+```csharp
 using System;
 using AppLogger;
 
@@ -79,7 +79,7 @@ class Program
         Logger.Log("Hello from App!");
     }
 }
-
+```
 ### Vaihe 9: Suorita PowerShellissa App projekti
 ### PowerShell:ssä kirjoita komento:
 dotnet run --project App
@@ -90,14 +90,14 @@ dotnet add .\AppLogger\AppLogger.csproj package Humanizer
 
 ### Vaihe 11: Muokkaa Visual Studio Codessa Logger.cs tiedostoa, jotta voit käyttää Humanizeria
 ### Siirry Visual Studio Coden puolelle takaisin ja muokkaa Logger.cs-tiedostoa käyttämään Humanizeria (C# koodi):
-
+```csharp
 using Humanizer;
 
 public static void Log(string text)
 {
     Console.WriteLine(text.Humanize());
 }
-
+```
 ### Vaihe 12: Testaa, että asentamasi Humanizer-kirjasto toimii
 ### Testaa Humanizer eli kirjoita komento PowerSell:ssä, joka suorittaa sovelluksen uudelleen:
 dotnet run --project App

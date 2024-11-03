@@ -103,5 +103,5 @@ public static void Log(string text)
 ### Testaa Humanizer eli kirjoita komento PowerSell:ssä, joka suorittaa sovelluksen uudelleen:
 dotnet run --project App
 
-### DONE! Valmista tuli
-### Jos joku kohta jäi epäselväksi, voit ottaa yhteyttä ja kysyä rohkeasti.
+## DONE! Valmista tuli
+## Jos joku kohta jäi epäselväksi, voit ottaa yhteyttä ja kysyä rohkeasti.

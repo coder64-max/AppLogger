@@ -24,8 +24,8 @@ Luo projektikansio (Powershell): mkdir C:\Temp\Tehtava4
 2. PowerShell:ssä varmista, että olet oikeassa hakemistossa, eli suorita tämä komento ensin: 
 cd C:\Temp\Tehtava4
 
-### Vaihe 3: Luo uusi Solution, luo uusi AppLogger-moduuli (classlib) ja App-konsolisovellus, 
-### sekä lisää molemmat projektit Solutioniin (kirjoittaa yksitellen seuraavat komennot (eli rivi kerrallaan, ei siis kaikkia komentoja putkeen):
+### Vaihe 3: Luo uusi Solution, luo uusi AppLogger-moduuli (classlib) ja App-konsolisovellus, sekä lisää molemmat projektit Solutioniin 
+### (kirjoita yksitellen seuraavat komennot eli rivi kerrallaan, ei siis kaikkia komentoja kerralla yhteen putkeen:
 
 ### Luo uusi Solution PowerShell:ssä: 
 dotnet new sln

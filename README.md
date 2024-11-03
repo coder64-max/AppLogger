@@ -91,6 +91,7 @@ dotnet add .\AppLogger\AppLogger.csproj package Humanizer
 ### Vaihe 11: Muokkaa Visual Studio Codessa Logger.cs tiedostoa, jotta voit käyttää Humanizeria
 ### Siirry Visual Studio Coden puolelle takaisin ja muokkaa Logger.cs-tiedostoa käyttämään Humanizeria (C# koodi):
 ```csharp
+using System;
 using Humanizer;
 
 public static void Log(string text)

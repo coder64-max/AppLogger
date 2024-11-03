@@ -17,50 +17,38 @@ Aivan aluksi sinulla täytyy olla asennettuna Visual Studio Code ja PowerShell 7
 ### Vaihe 1: Luo projekti
  
 1. Avaa PowerShell ja luo projekti:
-```powershell
-   Luo projektikansio: mkdir C:\Temp\Tehtava4
+Luo projektikansio (Powershell): mkdir C:\Temp\Tehtava4
 
 ### Vaihe 2: Varmista että olet oikeassa hakemistossa PowerShellissa
 
-2. Varmista, että olet oikeassa hakemistossa, eli suorita tämä komento ensin: 
-```powershell
+2. PowerShell:ssä varmista, että olet oikeassa hakemistossa, eli suorita tämä komento ensin: 
 cd C:\Temp\Tehtava4
 
-### Vaihe 3: Luo uusi Solution, luo uusi AppLogger-moduuli (classlib) ja App-konsolisovellus, sekä lisää molemmat projektit
-Solutioniin
+### Vaihe 3: Luo uusi Solution, luo uusi AppLogger-moduuli (classlib) ja App-konsolisovellus, 
+### sekä lisää molemmat projektit Solutioniin (kirjoittaa yksitellen seuraavat komennot (eli rivi kerrallaan, ei siis kaikkia komentoja putkeen):
 
-3. Seuraavaksi voit kirjoittaa yksitellen seuraavat komennot (eli rivi kerrallaan, ei siis kaikkia komentoja putkeen):
-Luo uusi Solution: 
-```powershell
+### Luo uusi Solution PowerShell:ssä: 
 dotnet new sln
 
-Luo AppLogger -moduuli (classlib): 
-```powershell
+### Luo AppLogger -moduuli (classlib) PowerShell:ssä: 
 dotnet new classlib -n AppLogger
 
-Luo App-konsolisovellus: 
-```powershell
+### Luo App-konsolisovellus PowerShell:ssä:
 dotnet new console -n App
 
-Lisää molemmat projektit Solutioniin:
- ```powershell
+### Lisää molemmat projektit Solutioniin PowerShellin avulla:
 dotnet sln add AppLogger\AppLogger.csproj
 dotnet sln add App\App.csproj
 
-### Vaihe 4: Linkitä projektit toisiinsa
-
-4. Linkitä projektit toisiinsa eli lisää viittaus AppLogger-projetiin App-projektista:
-```powershell
+### Vaihe 4: Linkitä projektit toisiinsa PowerShell:llä eli lisää viittaus AppLogger-projetiin App-projektista:
 dotnet add .\App\App.csproj reference .\AppLogger\AppLogger.csproj
 
-### Vaihe 5: Avaa PowerShellin komennolla Visual Studio Code
+### Vaihe 5: Avaa Visual Studio Code PowerShellin kautta komennolla:
+code .
 
-5. Avaa Visual Studio Code komennolla: code .
+### Vaihe 6: Muokkaa Visual Studio Codessa AppLogger-moduulia eli uudelleennimeä AppLockerin Class.cs tiedosto Logger.cs nimiseksi
+### Uudelleennimeämisen jälkeen muokkaa Logger.cs tiedostoa näin:
 
-### Vaihe 6: Muokkaa Visual Studio Codessa AppLogger-moduulia eli muuta Class.cs tiedoston nimi Logger.cs:ksi
-
-6. Visual Studio Codessa: Muokkaa AppLogger-moduulia eli etsi Class.cs tiedosto (AppLogger:ssa) ja uudelleennimeä se Logger.cs nimiseksi. Uudelleennimeämisen jälkeen muokkaa Logger.cs tiedostoa näin:
-```csharp
 using System;
 
 namespace AppLogger
@@ -73,18 +61,14 @@ namespace AppLogger
         }
     }
 }
-```
 
 ### Vaihe 7: Siirry takaisin PowerShelliin (mutta älä sulje Visual Studio Codea)
-
-7. Älä sulje Visual Studio Codea, vaan siirry seuraavaksi takaisin PowerShelliin ja kirjoita komento:
-```powershell
+### Kirjoita PowerShelliin komento:
 dotnet build
 
 ### Vaihe 8: Muokkaa Visual Studio Codessa App-projektissa näkyvää Program.cs tiedostoa
+### Siirry App-projektiin ja valitse Program.cs-tiedosto. Kirjoita koodi Program.cs tiedostoon, joka kutsuu Logger.Log-metodia:
 
-8. Tee seuraavaksi Visual Studio Codessa näin: Siirry App-projektiin ja avaa Program.cs-tiedosto. Lisää koodi, joka kutsuu Logger.Log-metodia:
-```csharp
 using System;
 using AppLogger;
 
@@ -95,37 +79,28 @@ class Program
         Logger.Log("Hello from App!");
     }
 }
-```
 
 ### Vaihe 9: Suorita PowerShellissa App projekti
-
-9. Palaa takaisin PowerShelliin ja kirjoita komento:
-```powershell
+### PowerShell:ssä kirjoita komento:
 dotnet run --project App
 
 ### Vaihe 10: Asenna Humanizer-kirjasto PowerShellin avulla
-
-10. Siirry takaisin AppLogger-projektiin ja asenna Humanizer-kirjasto PowerShellissa komennolla:
-```powershell
+### Alapuolella olevalla komennolla siirryt takaisin AppLogger-projektin hakemistoon PowerShell:ssä ja asennat viimeisimmän vakaan version Humanizer-kirjastosta:
 dotnet add .\AppLogger\AppLogger.csproj package Humanizer
 
-Vaihe 11: Muokkaa Visual Studio Codessa Logger.cs tiedostoa, jotta voit käyttää Humanizeria
+### Vaihe 11: Muokkaa Visual Studio Codessa Logger.cs tiedostoa, jotta voit käyttää Humanizeria
+### Siirry Visual Studio Coden puolelle takaisin ja muokkaa Logger.cs-tiedostoa käyttämään Humanizeria (C# koodi):
 
-11. Siirry Visual Studio Coden puolelle takaisin ja muokkaa Logger.cs-tiedostoa käyttämään Humanizeria:
-```csharp
 using Humanizer;
 
 public static void Log(string text)
 {
     Console.WriteLine(text.Humanize());
 }
-```
-Vaihe 12: Testaa, että asentamasi Humanizer kirjasto toimii
 
-12. Testaa Humanizer eli kirjoita komento, joka suorittaa sovelluksen uudelleen:
-```powershell
+### Vaihe 12: Testaa, että asentamasi Humanizer-kirjasto toimii
+### Testaa Humanizer eli kirjoita komento PowerSell:ssä, joka suorittaa sovelluksen uudelleen:
 dotnet run --project App
 
-DONE! Valmista tuli.
-
+### DONE! Valmista tuli
 ### Jos joku kohta jäi epäselväksi, voit ottaa yhteyttä ja kysyä rohkeasti.
